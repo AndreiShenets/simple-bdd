@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Andrei Shenets</authors>
+    <owners>Andrei Shenets</owners>
+    <projectUrl>https://github.com/AndreiShenets/bdd-for-uwp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>$copyright$</copyright>
+    <tags>bdd tests scenarios net standard</tags>
+  </metadata>
+</package>

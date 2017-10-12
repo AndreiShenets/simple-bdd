@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Andrei Shenets</Authors>
+    <PackageProjectUrl>https://github.com/AndreiShenets/simple-bdd</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AndreiShenets/simple-bdd</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>bdd tests scenarios net standard</PackageTags>
+    <Copyright>MIT License</Copyright>
+    <Description>Simple framework for bdd tests using any other testing framework</Description>
+    <Company />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="11.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+!packages/repositories.config
+packages/
+**/bin
+**/obj
+**/*.csproj.user
+**/*.suo
+**/*sln.DotSettings.user
+Binaries/
+Automation/*.log
+**/.vs
+**/.vscode
+**/project.lock.json
+tools/
+nuget scripts/build/
