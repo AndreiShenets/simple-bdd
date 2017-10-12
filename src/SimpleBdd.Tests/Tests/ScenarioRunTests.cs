@@ -28,7 +28,7 @@ namespace SimpleBdd.Tests.Tests
                 .When("When test method joins 'GivenKey' and 'GivenAsAndKey' values as string to 'WhenResultKey' as result")
                     .And("And when test method concats 'TableKey' value to 'WhenResultKey'")
                 .Then("Value with key 'WhenResultKey' in the result context is a string")
-                    .And("Value with key 'WhenResultKey' in the result context should be equal '10and1.1'")
+                    .And("Value with key 'WhenResultKey' in the result context should be equal '10and1.1' or '10and1,1'")
                 .Run();
         }
 
@@ -111,10 +111,13 @@ namespace SimpleBdd.Tests.Tests
             (GetResult<object>(resultKey) is string).Should().BeTrue();
         }
 
-        [Then("Value with key '(.+)' in the result context should be equal '(.+)'")]
-        private static void ThenValueWithKeyInTheResultContextIsAString(string resultKey, string expectedValue)
+        [Then("Value with key '(.+)' in the result context should be equal '(.+)' or '(.+)'")]
+        private static void ThenValueWithKeyInTheResultContextIsAString(string resultKey, string expectedValue,
+            string alternativeExpectedValue)
         {
-            GetResult<string>(resultKey).Should().Be(expectedValue);
+            string result = GetResult<string>(resultKey);
+
+            result.Should().BeOneOf(expectedValue, alternativeExpectedValue);
         }
     }
 }
