@@ -3,8 +3,8 @@ param (
     [string]$buildFolder = ".\build",
     [string]$apiKey = "",
     [string]$nugetUrl = "https://www.nuget.org/",
-    [string]$packagePattern = "Bdd.Uwp",
-    [bool]$buildOnly = $false
+    [string]$packagePattern = "Simple-Bdd",
+    [bool]$buildOnly = $true
 )
 
 $ErrorActionPreference = "Stop"
