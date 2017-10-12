@@ -13,6 +13,7 @@
     <Copyright>MIT License</Copyright>
     <Description>Simple framework for bdd tests using any other testing framework</Description>
     <Company />
+    <PackageId>Simple-Bdd</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
