@@ -1,5 +1,6 @@
-# Cucumber-like bdd tests for Universal Windows Applications
-Simple cucumber-like test framework to use for Universal Windows App platform (or any other project because of .net standard support)
+# Cucumber-like bdd tests
+Simple cucumber-like test framework to use on Universal Windows App platform or any other project because of .net standard support
+.net standard version is 1.1
 
 The goal of this project is to create some simple BDD framework.
 The reasons:
