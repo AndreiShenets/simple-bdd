@@ -1,0 +1,41 @@
+﻿<Window
+    x:Class="ScenarioToCodeConverter.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="MainWindow" Height="350" Width="525"
+>
+
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="SourceTextBox"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap" />
+
+        <Button Grid.Row="1"
+                Margin="0,16,0,0"
+                HorizontalAlignment="Stretch"
+                Content="Generate implementation with copy to clipboard"
+                Click="OnGenerateImplementationWitchCopyToClipboard" />
+
+        <Button Grid.Row="2"
+                Margin="0,8,0,0"
+                HorizontalAlignment="Stretch"
+                Content="Generate method name from string"
+                Click="OnGenerateMethodNameFromString" />
+
+        <TextBox x:Name="ResultTextBox"
+                 Grid.Row="3"
+                 Margin="0,16,0,0"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap" />
+    </Grid>
+</Window>
