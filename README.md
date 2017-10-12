@@ -149,7 +149,7 @@ There is a simple tool to convert scenarios to test methods. Clone solution, bui
 
 Create a scenario class like this
 
-```
+```csharp
 public partial class Scenario
 {
     private readonly ScenarioContext _scenarioContext = new ScenarioContext();
@@ -187,7 +187,7 @@ public partial class Scenario
 
 In a second file(s) create another class(es) like this
 
-```
+```csharp
 public partial class Scenario
 {
     public Scenario Do_some_initialization()
@@ -240,20 +240,20 @@ public partial class Scenario
 
 And example of usage is
 
-```
-    [TestFixture]
-    public class MyTests
+```csharp
+[TestFixture]
+public class MyTests
+{
+    [Test]
+    public void Test()
     {
-        [Test]
-        public void Test()
-        {
-            new Scenario()
-                .Given.Do_some_initialization()
-                    .And.Do_other_initialization()
-                .When.Do_some_useful_work()
-                    .And.Do_some_other_useful_work()
-                .Then.Do_some_checks()
-                    .And.Do_other_checks();
-        }
+        new Scenario()
+            .Given.Do_some_initialization()
+                .And.Do_other_initialization()
+            .When.Do_some_useful_work()
+                .And.Do_some_other_useful_work()
+            .Then.Do_some_checks()
+                .And.Do_other_checks();
     }
+}
 ```
