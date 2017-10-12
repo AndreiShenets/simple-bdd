@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://github.com/AndreiShenets/simple-bdd</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AndreiShenets/simple-bdd</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>bdd tests scenarios net standard</PackageTags>
+    <PackageTags>bdd tests scenarios net standard uwp</PackageTags>
     <Copyright>MIT License</Copyright>
     <Description>Simple framework for bdd tests using any other testing framework</Description>
     <Company />

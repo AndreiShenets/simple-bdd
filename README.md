@@ -1,11 +1,11 @@
 # Cucumber-like bdd tests for Universal Windows Applications
-Simple cucumber-like test framework to use for Universal Windows App platform
+Simple cucumber-like test framework to use for Universal Windows App platform (or any other project because of .net standard support)
 
 The goal of this project is to create some simple BDD framework.
 The reasons:
 
 1. The SpecFlow team isn't going to support UWP. At least now. They might in future but I need something for now. I didn't find anything usable
-2. Try and learn some features
+2. Try and learn some features and .net standard project
 3. Just for fun
 
 Unfortunately Microsoft Universal Windows Platform has poor support of unit testing at all. There are some restrictions. So as result this solution is also going to have restrictions. But in any case I'll try to do it in the handiest and usable way.
@@ -14,7 +14,7 @@ In this solution I'm goint to use Gerkins-like syntax. If you don't know what it
 
 ## Examples of usage
 
-Can be found [here](https://github.com/AndreiShenets/bdd-for-uwp/blob/master/src/Tests/Tests/ScenarioRunTests.cs)
+Can be found [here](https://github.com/AndreiShenets/simple-bdd/blob/master/src/SimpleBdd.Tests/Tests/ScenarioRunTests.cs)
 
 ```csharp
 [TestClass]
@@ -145,8 +145,11 @@ As alternative you can declare ScenarioContext parameter in your test method and
 There is a simple tool to convert scenarios to test methods. Clone solution, build and check.
 
 
+## Example of alternative way of using
 
+Create a scenario class like this
 
+```
 public partial class Scenario
 {
     private readonly ScenarioContext _scenarioContext = new ScenarioContext();
@@ -180,3 +183,77 @@ public partial class Scenario
         return _scenarioContext.GetResult<T>(key, instanceIndex);
     }
 }
+```
+
+In a second file(s) create another class(es) like this
+
+```
+public partial class Scenario
+{
+    public Scenario Do_some_initialization()
+    {
+        Put<string>("Initialization", "Key");
+
+        return this;
+    }
+
+    public Scenario Do_other_initialization()
+    {
+        Put<string>("OtherInitialization", "OtherKey");
+
+        return this;
+    }
+
+    public Scenario Do_some_useful_work()
+    {
+        PutResult<string>(Get<string>("Key").ToUpper(), "ResultKey");
+
+        return this;
+    }
+
+    public Scenario Do_some_other_useful_work()
+    {
+        PutResult<string>(Get<string>("OtherKey").ToUpper(), "OtherResultKey");
+
+        return this;
+    }
+
+    public Scenario Do_some_checks()
+    {
+        GetResult<string>("ResultKey")
+            .Should()
+            .Be("INITIALIZATION");
+
+        return this;
+    }
+
+    public Scenario Do_other_checks()
+    {
+        GetResult<string>("OtherResultKey")
+            .Should()
+            .Be("OTHERINITIALIZATION");
+
+        return this;
+    }
+}
+```
+
+And example of usage is
+
+```
+    [TestFixture]
+    public class MyTests
+    {
+        [Test]
+        public void Test()
+        {
+            new Scenario()
+                .Given.Do_some_initialization()
+                    .And.Do_other_initialization()
+                .When.Do_some_useful_work()
+                    .And.Do_some_other_useful_work()
+                .Then.Do_some_checks()
+                    .And.Do_other_checks();
+        }
+    }
+```
